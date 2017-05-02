@@ -1,0 +1,36 @@
+{
+  "name": "ml-util",
+  "version": "1.0.0",
+  "description": "Machine Learning Utility Functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gulfaraz/ml-util.git"
+  },
+  "keywords": [
+    "fmin",
+    "fmincg",
+    "conjugate",
+    "gradient",
+    "ml",
+    "ai",
+    "machine",
+    "learning",
+    "artificial",
+    "intelligence",
+    "gulfaraz",
+    "yasin"
+  ],
+  "author": "Gulfaraz Yasin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gulfaraz/ml-util/issues"
+  },
+  "homepage": "https://github.com/gulfaraz/ml-util#readme",
+  "dependencies": {
+    "mathjs": "^3.12.2"
+  }
+}
