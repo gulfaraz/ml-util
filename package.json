@@ -1,6 +1,6 @@
 {
   "name": "ml-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Machine Learning Utility Functions",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,8 @@
   "keywords": [
     "fmin",
     "fmincg",
+    "sigmoid",
+    "activation",
     "conjugate",
     "gradient",
     "ml",
