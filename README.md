@@ -5,4 +5,6 @@ Machine Learning Utility Functions
 
 **sigmoid** - Activation function
 
+**randnBoxMuller** - Standard Normal variate using Box-Muller transform
+
 
