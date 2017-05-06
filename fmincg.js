@@ -14,6 +14,15 @@ mathjs.complexLarger = function (a, b) {
     return isLarger;
 };
 
+mathjs.complexSmaller = function (a, b) {
+    var isSmaller = true;
+    if(mathjs.isComplex(a) || mathjs.isComplex(b)) {
+        isSmaller = mathjs.abs(a) < mathjs.abs(b) || (mathjs.abs(a) == mathjs.abs(b) && mathjs.arg(b) < mathjs.arg(b));
+    } else {
+        isSmaller = mathjs.smaller(a, b);
+    }
+    return isSmaller;
+};
 
 mathjs.isFinite = function (value) {
   if (value == Number.POSITIVE_INFINITY || value == Number.NEGATIVE_INFINITY){
@@ -143,19 +152,19 @@ module.exports = function (f, X, options, P1, P2, P3, P4, P5) {
             var A = mathjs.add(mathjs.multiply(6,mathjs.divide(mathjs.subtract(f2,f3),z3)),mathjs.multiply(3,mathjs.add(d2,d3)));
             var B = mathjs.subtract(mathjs.multiply(3, mathjs.subtract(f3, f2)), mathjs.multiply(z3, mathjs.add(d3, mathjs.multiply(2, d2))));
             z2 = mathjs.divide(mathjs.multiply(-1, d2, z3, z3), mathjs.add(B, mathjs.sqrt(mathjs.subtract(mathjs.multiply(B, B), mathjs.multiply(A, d2, z3, z3)))));
-            if(mathjs.isComplex(z2) || mathjs.isNaN(z2) || !mathjs.isFinite(z2) || mathjs.smaller(z2, 0)) {
-                if(mathjs.smaller(limit, -0.5)) {
+            if(mathjs.isComplex(z2) || mathjs.isNaN(z2) || !mathjs.isFinite(z2) || mathjs.complexSmaller(z2, 0)) {
+                if(mathjs.complexSmaller(limit, -0.5)) {
                     z2 = mathjs.multiply(z1, mathjs.subtract(CONSTANT.EXT, 1));
                 } else {
                     z2 = mathjs.divide(mathjs.subtract(limit, z1), 2);
                 }
             } else if(mathjs.larger(limit, -0.5) && mathjs.complexLarger(mathjs.add(z2, z1), limit)) {
                 z2 = mathjs.divide(mathjs.subtract(limit, z1), 2);
-            } else if(mathjs.smaller(limit, -0.5) && mathjs.complexLarger(mathjs.add(z2, z1), mathjs.multiply(z1, CONSTANT.EXT))) {
+            } else if(mathjs.complexSmaller(limit, -0.5) && mathjs.complexLarger(mathjs.add(z2, z1), mathjs.multiply(z1, CONSTANT.EXT))) {
                 z2 = mathjs.multiply(z1, mathjs.subtract(CONSTANT.EXT, 1.0));
-            } else if(mathjs.smaller(z2, mathjs.multiply(-1, z3, CONSTANT.INT))) {
+            } else if(mathjs.complexSmaller(z2, mathjs.multiply(-1, z3, CONSTANT.INT))) {
                 z2 = mathjs.multiply(-1, z3, CONSTANT.INT);
-            } else if(mathjs.larger(limit, -0.5) && mathjs.smaller(z2, mathjs.multiply(mathjs.subtract(limit, z1), mathjs.subtract(1.0, CONSTANT.INT)))) {
+            } else if(mathjs.larger(limit, -0.5) && mathjs.complexSmaller(z2, mathjs.multiply(mathjs.subtract(limit, z1), mathjs.subtract(1.0, CONSTANT.INT)))) {
                 z2 = mathjs.multiply(mathjs.subtract(limit, z1), mathjs.subtract(1.0, CONSTANT.INT));
             }
             f3 = mathjs.clone(f2);
