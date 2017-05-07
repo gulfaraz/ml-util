@@ -504,7 +504,7 @@ module.exports = function fmincg(f, X, options, P1, P2, P3, P4, P5) {
             df2 = mathjs.clone(tmp);
             s = mathjs.multiply(-1, df1);
             d1 = mathjs.multiply(
-                athjs.multiply(
+                mathjs.multiply(
                     -1,
                     mathjs.transpose(s)
                 ),
