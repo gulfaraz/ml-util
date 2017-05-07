@@ -7,4 +7,4 @@ Machine Learning Utility Functions
 
 **randnBoxMuller** - Standard Normal variate using Box-Muller transform
 
-
+**randomPermutation** - returns an array of random permutation efficiently (O(n))
